@@ -1,0 +1,422 @@
+/**
+ * Custom CSS for School Management System
+ */
+
+/* Global Styles */
+body {
+    min-height: 100vh;
+    padding-bottom: 60px;
+    position: relative;
+    padding-top: 56px; /* Add padding for fixed navbar */
+}
+
+.content-wrapper {
+    padding: 20px;
+}
+
+/* Sidebar Styles - FIXED */
+.sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1030;
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+/* Initial state for mobile */
+@media (max-width: 991.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
+
+/* Initial state for desktop */
+@media (min-width: 992px) {
+    .sidebar {
+        transform: translateX(0);
+    }
+    
+    body.sidebar-collapsed .sidebar {
+        transform: translateX(-100%);
+    }
+}
+
+.sidebar-sticky {
+    padding: 1rem;
+    height: 100%;
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    margin: 0.2rem 0;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.sidebar .nav-link.active {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.sidebar .nav-link i {
+    margin-right: 0.5rem;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar hr {
+    margin: 1rem 0;
+}
+
+/* Sidebar overlay for mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1020;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+/* Main content adjustment - FIXED */
+.main-content {
+    margin-left: 0;
+    padding: 1rem;
+    width: 100%;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+@media (min-width: 992px) {
+    .main-content {
+        margin-left: 260px;
+        width: calc(100% - 260px);
+    }
+    
+    body.sidebar-collapsed .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Toggle button */
+#sidebarToggleBtn {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebarToggleBtn:hover, #sidebarToggleBtn:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
+/* Card Styles */
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: none;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0.75rem 1.25rem;
+}
+
+.card-stats {
+    text-align: center;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.card-stats:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-stats .icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.card-stats .value {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card-stats .label {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Table Styles */
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+/* Button Styles */
+.btn {
+    padding: 0.375rem 0.75rem;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-icon {
+    padding: 0.25rem 0.5rem;
+}
+
+/* Dashboard Widgets */
+.dashboard-widget {
+    height: 100%;
+    padding: 15px;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.dashboard-widget:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-widget .widget-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.dashboard-widget .widget-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dashboard-widget .widget-subtitle {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* Login Page */
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+
+.login-form .card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    border: none;
+}
+
+.login-form .card-header {
+    border-radius: 0 0 0 0;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    border-bottom: none;
+}
+
+.login-form .card-body {
+    padding: 2rem;
+}
+
+.login-form .form-control {
+    height: calc(2.5rem + 2px);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+
+.login-form .input-group-text {
+    background-color: #f8f9fa;
+    border-right: none;
+}
+
+.login-form .form-control {
+    border-left: none;
+}
+
+.login-form .btn-login {
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    margin-top: 1rem;
+}
+
+.school-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+    z-index: 1000;
+}
+
+/* Profile Page */
+.profile-header {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #f8f9fa;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    padding: 1rem;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.profile-role {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #6c757d;
+    width: 35%;
+}
+
+.detail-value {
+    width: 65%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+} 
